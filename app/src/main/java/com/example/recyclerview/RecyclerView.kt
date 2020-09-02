@@ -1,4 +1,4 @@
 package com.example.recyclerview
 
-class RecyclerView {
+data class RecyclerView(val imageResource: Int, val text1 : String,val text2 : String) {
 }
