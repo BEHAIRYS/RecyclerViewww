@@ -1,8 +1,7 @@
-package com.example.task4_movies.data.repository
+package com.example.recyclerview.data.repository
 
-import android.widget.Toast
-import com.example.task4_movies.data.MovieDataInterface
-import com.example.task4_movies.data.MovieResults
+import com.example.recyclerview.data.MovieDataInterface
+import com.example.recyclerview.data.MovieResults
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +22,7 @@ object MovieRepository
     val call: Call<MovieResults> = apiInterface.getMovieData(api_key, language, page)
 
 
-    fun movieRequests(movieCallback: MovieCallback) {
+    fun movieRequests(movieResults: MovieResults) {
         call.enqueue(object : Callback<MovieResults> {
             override fun onResponse(call: Call<MovieResults>, response: Response<MovieResults>) {
                 println("call successful")

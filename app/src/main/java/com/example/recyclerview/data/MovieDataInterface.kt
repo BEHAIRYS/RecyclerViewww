@@ -1,8 +1,9 @@
-package com.example.task4_movies.data
+package com.example.recyclerview.data
 
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
+import kotlin.Result
 
 
 interface MovieDataInterface

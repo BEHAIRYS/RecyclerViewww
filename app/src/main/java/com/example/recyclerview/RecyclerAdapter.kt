@@ -1,18 +1,18 @@
-package com.example.recyclerview
+package com.example.recyclerview.data
 
-import android.provider.DocumentsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.R
 import kotlinx.android.synthetic.main.recycler_view.view.*
 
-class RecyclerAdapter(private val list : List<com.example.recyclerview.RecyclerView>) : RecyclerView.Adapter<RecyclerAdapter.viewHolder>() {
+class RecyclerAdapter(private val list : List<com.example.recyclerview.data.RecyclerView>) : RecyclerView.Adapter<RecyclerAdapter.viewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view,parent,
+        val itemView = LayoutInflater.from(parent.context).inflate(
+            R.layout.recycler_view,parent,
             false)
         return viewHolder(itemView)
     }

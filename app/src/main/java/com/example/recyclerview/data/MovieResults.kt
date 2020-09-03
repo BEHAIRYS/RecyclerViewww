@@ -1,4 +1,4 @@
-package com.example.task4_movies.data
+package com.example.recyclerview.data
 
 class MovieResults(
     val page: Int,
