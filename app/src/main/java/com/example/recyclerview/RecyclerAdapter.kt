@@ -31,7 +31,7 @@ class RecyclerAdapter(private val list : List<com.example.recyclerview.data.Recy
 
 
     class viewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-val imageView : ImageView = itemView.imageView1
+        val imageView : ImageView = itemView.imageView1
         val textView1 : TextView = itemView.textView1
         val textView2 : TextView = itemView.TextView2
     }

@@ -35,8 +35,19 @@ class MainActivity : AppCompatActivity(),MovieRepository.MovieCallback {
 
    override fun movieResponseError(errorMessage:String)
     {
-
-
-
     }
 }
+
+//CONTRIBUTIONS:
+
+/*
+Ahmed Behairy: recycler_view.xml, activity_main.xml, Main Activity: recycler view part
+
+Mostafa Shams: Retrofit with repository pattern including (MovieRepository.kt, MovieResults.kt, MovieDataInterface), MainActivity: networking part
+
+Omar Ossman: RecyclerAdapter.kt, RecyclerView.kt
+
+Farah Essam: Generating the api-key of the tmdb
+
+Abdelrahman Shemis: Generating the url for the networking part using the api-key
+ */
