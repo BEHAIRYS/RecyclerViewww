@@ -44,8 +44,9 @@ class MainActivity : AppCompatActivity(),MovieRepository.MovieCallback {
     {
     }
 
-    fun viewHolderList(): List<RecyclerView>
+    fun viewHolderList(movieResults: MovieResults): List<RecyclerView>
     {
+        bindMovieData(movieResults)
         return list
     }
 }
