@@ -14,18 +14,25 @@ class MainActivity : AppCompatActivity(),MovieRepository.MovieCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // val list :
-        //recyclerView1.adapter= RecyclerAdapter(list)
+        val exampleList = viewHolderList()
+        recyclerView1.adapter= RecyclerAdapter(exampleList)
         recyclerView1.layoutManager= LinearLayoutManager(this)
         recyclerView1.setHasFixedSize(true)
     }
+
+    val list = ArrayList<RecyclerView>()
+
     //to the recycler view activity
     fun bindMovieData(movieResults: MovieResults)
     {
-        for (i in 0..movieResults.results.size)
-        textView1.text = movieResults.results[i].toString()
 
-        TextView2.text=movieResults.total_results.toString()
+        for (i in 0..movieResults.results.size)
+        {
+            textView1.text = movieResults.results[i].title
+            TextView2.text = movieResults.results[i].overview
+            list.add(RecyclerView(textView1.text as String, TextView2.text as String))
+        }
+
     }
 
     override fun movieResponse(movieResults: MovieResults)
@@ -35,6 +42,11 @@ class MainActivity : AppCompatActivity(),MovieRepository.MovieCallback {
 
    override fun movieResponseError(errorMessage:String)
     {
+    }
+
+    fun viewHolderList(): List<RecyclerView>
+    {
+        return list
     }
 }
 
