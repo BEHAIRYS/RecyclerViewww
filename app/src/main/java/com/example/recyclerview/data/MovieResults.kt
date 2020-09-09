@@ -3,7 +3,7 @@ package com.example.recyclerview.data
 
 import com.google.gson.annotations.SerializedName
 
-data class Result(
+data class MovieResults(
     @SerializedName("adult")
     val adult: Boolean,
     @SerializedName("backdrop_path")

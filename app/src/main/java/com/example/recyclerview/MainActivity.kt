@@ -23,24 +23,20 @@ class MainActivity : AppCompatActivity(),MovieRepository.MovieCallback {
     val list = ArrayList<RecyclerView>()
 
     //to the recycler view activity
-    fun bindMovieData(movieResults: MovieData)
+    fun bindMovieData(movieResults: MovieResults)
     {
-
-        for (i in 0..movieResults.results.size)
-        {
-            textView1.text = movieResults.results[i].title
-            TextView2.text = movieResults.results[i].overview
+            textView1.text = movieResults.title
+            TextView2.text = movieResults.overview
             list.add(RecyclerView(textView1.text as String, TextView2.text as String))
-        }
-
     }
 
-    override fun movieResponse(movieResults: MovieData)
+    override fun movieResponse(movieResults: MovieResults)
     {
         bindMovieData(movieResults)
     }
 
-   override fun movieResponseError(errorMessage:String)
+
+    override fun movieResponseError(errorMessage:String)
     {
     }
 

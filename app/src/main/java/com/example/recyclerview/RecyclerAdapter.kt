@@ -21,7 +21,7 @@ class RecyclerAdapter(private val list : List<com.example.recyclerview.data.Recy
 
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
         val currentItem = list[position]
-        holder.imageView.setImageResource(currentItem.imageResource)
+
         holder.textView1.text = currentItem.text1
         holder.textView2.text = currentItem.text2
 

@@ -1,7 +1,7 @@
 package com.example.recyclerview.data.repository
 
-import com.example.recyclerview.data.MovieData
 import com.example.recyclerview.data.MovieDataInterface
+import com.example.recyclerview.data.MovieResults
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,16 +19,16 @@ object MovieRepository
         .addConverterFactory(GsonConverterFactory.create()).build()
 
     val apiInterface: MovieDataInterface = retrofit.create(MovieDataInterface::class.java)
-    val call: Call<MovieData> = apiInterface.getMovieData(api_key, language, page)
+    val CALL: Call<MovieResults> = apiInterface.getMovieData(api_key, language, page)
 
 
-    fun movieRequests(movieResults: MovieData) {
-        call.enqueue(object : Callback<MovieData> {
-            override fun onResponse(call: Call<MovieData>, response: Response<MovieData>) {
+    fun movieRequests(movieResults: MovieResults) {
+        CALL.enqueue(object : Callback<MovieResults> {
+            override fun onResponse(call: Call<MovieResults>, response: Response<MovieResults>) {
                 println("call successful")
             }
 
-            override fun onFailure(call: Call<MovieData>, t: Throwable) {
+            override fun onFailure(call: Call<MovieResults>, t: Throwable) {
                 println("call failed")
             }
 
@@ -37,7 +37,7 @@ object MovieRepository
 
     interface MovieCallback
     {
-        fun movieResponse(movieResults: MovieData)
+        fun movieResponse(movieResults: MovieResults)
         fun movieResponseError(errorMessage:String)
     }
 }
