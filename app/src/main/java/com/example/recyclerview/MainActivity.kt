@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(),MovieRepository.MovieCallback {
     val list = ArrayList<RecyclerView>()
 
     //to the recycler view activity
-    fun bindMovieData(movieResults: MovieResults)
+    fun bindMovieData(movieResults: MovieData)
     {
 
         for (i in 0..movieResults.results.size)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(),MovieRepository.MovieCallback {
 
     }
 
-    override fun movieResponse(movieResults: MovieResults)
+    override fun movieResponse(movieResults: MovieData)
     {
         bindMovieData(movieResults)
     }
@@ -44,9 +44,8 @@ class MainActivity : AppCompatActivity(),MovieRepository.MovieCallback {
     {
     }
 
-    fun viewHolderList(movieResults: MovieResults): List<RecyclerView>
+    fun viewHolderList(): List<RecyclerView>
     {
-        bindMovieData(movieResults)
         return list
     }
 }
