@@ -12,7 +12,10 @@ class MovieClient
     val language = "en-US"
 
     private val INSTANCE: MovieClient
-        get() =INSTANCE
+        get() {
+            return INSTANCE
+        }
+
 
     lateinit var movieDataInterface:MovieDataInterface
 
@@ -23,7 +26,7 @@ class MovieClient
          var movieDataInterface =retrofit.create(MovieDataInterface::class.java)
     }
 
-    fun getMovies():Call<MovieResults>
+    fun getMovies(): Call<List<MovieResults>>
     {
         return movieDataInterface.getMovieData(api_key, language, page)
     }
