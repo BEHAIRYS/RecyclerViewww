@@ -1,6 +1,7 @@
 package com.example.recyclerview;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.room.Database;
 import androidx.room.Room;
@@ -9,14 +10,22 @@ import androidx.room.RoomDatabase;
 public abstract class MovieDatabase extends RoomDatabase {
 
     private static MovieDatabase instance;
-    public abstract MovieDao noteDao();
+    private static final Object LOCK=new Object();
+    private static final String LOG_TAG= MovieDatabase.class.getSimpleName();
+
+    public abstract MovieDao movieDao();
+
+
     public synchronized MovieDatabase getInstance(Context context){
         if(instance== null)
         {
-            instance= Room.databaseBuilder(context.getApplicationContext(),MovieDatabase.class,
-                    "note_database")
-                    .fallbackToDestructiveMigration()
-                    .build();
+            synchronized (LOCK) {
+                Log.d(LOG_TAG,"create new database instance");
+                instance = Room.databaseBuilder(context.getApplicationContext(), MovieDatabase.class,
+                        "movie_database")
+                        .fallbackToDestructiveMigration()
+                        .build();
+            }
         }
         return instance;
 
