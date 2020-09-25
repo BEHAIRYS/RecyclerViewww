@@ -10,6 +10,7 @@ import com.example.recyclerview.R
 import com.example.recyclerview.data.MovieResults
 import com.example.recyclerview.data.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_popular_movies.*
 
 class MainActivity : AppCompatActivity(){
 
