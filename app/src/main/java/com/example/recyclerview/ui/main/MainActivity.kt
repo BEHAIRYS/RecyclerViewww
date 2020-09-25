@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.R
 import com.example.recyclerview.data.MovieResults
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_popular_movies.*
 
 class MainActivity : AppCompatActivity(){
 
