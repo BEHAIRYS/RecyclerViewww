@@ -3,34 +3,43 @@ package com.example.recyclerview.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.replace
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.recyclerview.Favorites
+import com.example.recyclerview.PopularMovies
 import com.example.recyclerview.R
+import com.example.recyclerview.TopRatedMovies
 import com.example.recyclerview.data.MovieResults
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_popular_movies.*
 
 class MainActivity : AppCompatActivity(){
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerView1.layoutManager= LinearLayoutManager(this)
-        recyclerView1.setHasFixedSize(true)
+        val popularFragment = PopularMovies()
+        val topRatedMoviesFragment = TopRatedMovies()
+        val favorites = Favorites()
 
-        val movieViewModel:MovieViewModel = ViewModelProviders.of(this).get(MovieViewModel::class.java)
-        movieViewModel.getMovies()
-
-        movieViewModel.moviesMutableLiveData.observe(this, Observer { MovieResults->
-
-            fun onChanged(movieResults: List<MovieResults>)
-            {
-                recyclerView1.adapter=RecyclerAdapter(movieResults)
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.popularMovies->{
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment, popularFragment).commit()
+                }
+                R.id.topRatedMovies->{
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment, topRatedMoviesFragment).commit()
+                }
+                R.id.favorites->{
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment, favorites).commit()
+                }
             }
-        })
+            true
+        }
     }
+
 
 }

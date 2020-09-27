@@ -6,10 +6,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MovieClient
 {
-    val base_url = "https://api.themoviedb.org/"
-    val page = 1
+    val base_url = "https://api.themoviedb.org/3/"
+   // val page = 1
     val api_key = "51e5ef0f20f2f6bb99f099c714177163"
-    val language = "en-US"
+   // val language = "en-US"
 
     private val INSTANCE: MovieClient
         get() {
@@ -17,17 +17,21 @@ class MovieClient
         }
 
 
-    lateinit var movieDataInterface:MovieDataInterface
+    var movieDataInterface: MovieDataInterface
 
     constructor(){
         val retrofit: Retrofit = Retrofit.Builder().baseUrl(base_url)
             .addConverterFactory(GsonConverterFactory.create()).build()
 
-         var movieDataInterface =retrofit.create(MovieDataInterface::class.java)
+        movieDataInterface =retrofit.create(MovieDataInterface::class.java)
     }
 
-    fun getMovies(): Call<List<MovieResults>>
+    fun getMovies(): Call<MovieListResponse>
     {
-        return movieDataInterface.getMovieData(api_key, language, page)
+        return movieDataInterface.getMovieData(api_key/*, language, page*/)
+    }
+    fun getMoviesTop(): Call<MovieListResponse>
+    {
+        return movieDataInterface.getMovieDataTop(api_key/*, language, page*/)
     }
 }

@@ -2,19 +2,27 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_movies"
+    android:id="@+id/nav_movies_22"
     app:startDestination="@id/popularMovies">
 
     <fragment
         android:id="@+id/popularMovies"
         android:name="com.example.recyclerview.PopularMovies"
         android:label="fragment_popular_movies"
-        tools:layout="@layout/fragment_popular_movies" />
+        tools:layout="@layout/fragment_popular_movies" >
+        <action
+            android:id="@+id/action_popularMovies_to_topRatedMovies"
+            app:destination="@id/topRatedMovies" />
+    </fragment>
     <fragment
         android:id="@+id/topRatedMovies"
         android:name="com.example.recyclerview.TopRatedMovies"
         android:label="fragment_top_rated_movies"
-        tools:layout="@layout/fragment_top_rated_movies" />
+        tools:layout="@layout/fragment_top_rated_movies" >
+        <action
+            android:id="@+id/action_topRatedMovies_to_favorites"
+            app:destination="@id/favorites" />
+    </fragment>
     <fragment
         android:id="@+id/favorites"
         android:name="com.example.recyclerview.Favorites"
