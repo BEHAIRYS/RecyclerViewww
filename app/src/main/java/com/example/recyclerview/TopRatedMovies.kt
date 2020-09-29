@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.recyclerview.data.MovieResults
 import com.example.recyclerview.ui.main.MovieViewModel
 import com.example.recyclerview.ui.main.RecyclerAdapter
-import kotlinx.android.synthetic.main.fragment_popular_movies.*
 import kotlinx.android.synthetic.main.fragment_top_rated_movies.*
 
 

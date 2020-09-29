@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.recyclerview.data.MovieListResponse
 import com.example.recyclerview.data.MovieResults
 import com.example.recyclerview.ui.main.MovieViewModel
 import com.example.recyclerview.ui.main.RecyclerAdapter

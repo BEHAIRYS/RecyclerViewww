@@ -7,15 +7,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MovieClient
 {
     val base_url = "https://api.themoviedb.org/3/"
-   // val page = 1
     val api_key = "51e5ef0f20f2f6bb99f099c714177163"
-   // val language = "en-US"
-
-    private val INSTANCE: MovieClient
-        get() {
-            return INSTANCE
-        }
-
+    val language = "en-US"
+    val page = 1
 
     var movieDataInterface: MovieDataInterface
 
@@ -28,10 +22,10 @@ class MovieClient
 
     fun getMovies(): Call<MovieListResponse>
     {
-        return movieDataInterface.getMovieData(api_key/*, language, page*/)
+        return movieDataInterface.getMovieData(api_key, language, page)
     }
     fun getMoviesTop(): Call<MovieListResponse>
     {
-        return movieDataInterface.getMovieDataTop(api_key/*, language, page*/)
+        return movieDataInterface.getMovieDataTop(api_key,language, page)
     }
 }

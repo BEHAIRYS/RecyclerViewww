@@ -10,16 +10,16 @@ interface MovieDataInterface
 
     @GET(value = "movie/popular")
     fun getMovieData(
-        @Query("api_key") api_key:String
-        //@Query("language") language:String = "en",
-        //  @Query("page") page: Int
+        @Query("api_key") api_key:String,
+        @Query("language") language:String = "en",
+        @Query("page") page: Int
     ):Call<MovieListResponse>
 
     @GET(value = "movie/top_rated")
     fun getMovieDataTop(
-        @Query("api_key") api_key:String
-        //@Query("language") language:String = "en",
-        //  @Query("page") page: Int
+        @Query("api_key") api_key:String,
+        @Query("language") language:String = "en",
+        @Query("page") page: Int
     ):Call<MovieListResponse>
 
 
